@@ -1,0 +1,61 @@
+pipeline{
+    agent any
+    stages {
+        stage('Stage 1'){
+            steps{
+                script {
+                    sum = 2+3
+                    if(sum>=5){
+                        echo "Sum is ${sum}, running stage 1"
+                    } else {
+                        echo "Sum is ${sum}, skipping stage 1"
+                        currentBuild.result='Success'
+                        error('skipping stage 1')
+                    }
+                }
+            }
+        }
+        stage('Stage 2'){
+            steps{
+                script {
+                    sum = 2+7
+                    if(sum>=5){
+                        echo "Sum is ${sum}, running stage 2"
+                    } else {
+                        echo "Sum is ${sum}, skipping stage 2"
+                        currentBuild.result='Success'
+                        error('skipping stage 2')
+                    }
+                }
+            }
+        }
+        stage('Stage 3'){
+            steps{
+                script {
+                    sum = 3+3
+                    if(sum>=5){
+                        echo "Sum is ${sum}, running stage 3"
+                    } else {
+                        echo "Sum is ${sum}, skipping stage 3"
+                        currentBuild.result='Success'
+                        error('skipping stage 3')
+                    }
+                }
+            }
+        }
+        stage('Stage 4'){
+            steps{
+                script {
+                    sum = 2+7
+                    if(sum>=5){
+                        echo "Sum is ${sum}, running stage 4"
+                    } else {
+                        echo "Sum is ${sum}, skipping stage 4"
+                        currentBuild.result='Success'
+                        error('skipping stage 4')
+                    }
+                }
+            }
+        }
+    }
+} 
